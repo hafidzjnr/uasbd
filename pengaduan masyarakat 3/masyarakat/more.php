@@ -3,24 +3,31 @@
 	if($_GET['apa']=="pengaduan"){ ?>
 
 <?php 
-	$query = mysqli_query($koneksi,"SELECT * FROM pengaduan INNER JOIN masyarakat ON pengaduan.nik=masyarakat.nik WHERE id_pengaduan='".$_GET['id_pengaduan']."'");
+	$query = mysqli_query($koneksi,"SELECT * FROM pengaduan WHERE id_pengaduan='".$_GET['id']."'
+	");
 	$r=mysqli_fetch_assoc($query);
- ?>
-<b>Di Laporakan Pada : <?php echo $r['tgl_pengaduan']; ?></b><br>
+?>
 
-<?php 
-	if($r['foto']=="kosong"){ ?>
-		<img src="../img/noImage.png" width="100">
-<?php	}else{ ?>
-	<img width="100" src="../img/<?php echo $r['foto']; ?>">
-<?php }
- ?>
+<h2 class="white-text" style="margin-bottom: 20px;">Detail Pengaduan</h2>
 
+<div class="card">
+    <div class="card-content">
+        <b class="pink-text">Pesan</b>
+        <p><?php echo $r['isi_laporan']; ?></p>
+        <p>Status : <?php echo $r['status']; ?></p>
 
-<p><?php echo $r['isi_laporan']; ?></p>
-<p>Status : <?php echo $r['status']; ?></p>
+        <?php if($r['foto'] != "kosong"): ?>
+            <div style="margin-top: 20px;">
+                <b class="pink-text">Bukti Foto</b><br>
+                <img width="200" src="../img/<?php echo $r['foto']; ?>">
+            </div>
+        <?php endif; ?>
 
-<button><a href="index.php?p=dashboard">Back</a></button>
+        <div style="margin-top: 30px;">
+            <button class="btn black pink-text" onclick="window.location.href='index.php?p=dashboard'">Kembali</button>
+        </div>
+    </div>
+</div>
 
 <?php	}elseif ($_GET['apa']=="tanggapan") { ?>
 

@@ -1,0 +1,115 @@
+body {
+    background: #fff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.registration-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    max-height: 90vh;
+}
+
+.input_field {
+    margin-bottom: 12px;
+}
+
+.input_field label {
+    color: rgba(0,0,0,0.4);
+}
+
+.input_field input {
+    width: 100%;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+.input_field input:focus {
+    outline: none;
+    border-color: #FF4B8B;
+    box-shadow: 0 0 0 2px rgba(255,75,139,0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #FF4B8B, #FF6F91);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,75,139,0.4);
+    background: linear-gradient(45deg, #FF6F91, #FF4B8B);
+}
+
+h3 {
+    color: #FF4B8B !important;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.6em;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+}
+
+h5 {
+    color: #333 !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400 !important;
+    text-align: center;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.back-link {
+    color: #FF4B8B;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.back-link:hover {
+    color: #FF6F91;
+}
+
+#particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.form-content {
+    position: relative;
+    z-index: 1;
+}

@@ -1,3 +1,12 @@
+<?php
+// Add this near the top of the file to ensure alerts will work
+if(!isset($alertsIncluded)) {
+    echo '<link rel="stylesheet" type="text/css" href="../css/alerts.css">';
+    echo '<link rel="stylesheet" type="text/css" href="../csstyle/masyarakat-dashboard.css">';
+    echo '<script src="../js/alerts.js"></script>';
+    $alertsIncluded = true;
+}
+?>
 <table class="responsive-table" border="2" style="width: 100%;">
 	<tr>
 		<td><h4 class="white-text hide-on-med-and-down"><b>Tulis Laporan</b></h4></td>
@@ -15,7 +24,7 @@
 
 		<td>
 			
-			<table border="3" class="display responsive-table white ">
+			<table border="3" class="display responsive-table ">
 				<tr>
 					<td>No</td>
 					<td>NIK</td>
@@ -35,8 +44,11 @@
 						<td><?php echo $r['tgl_pengaduan']; ?></td>
 						<td><?php echo $r['status']; ?></td>
 						<td>
-							<a class="btn pink black-text modal-trigger" href="#tanggapan&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">More</a> 
-							<a class="btn black pink-text" onclick="return confirm('Anda Yakin Ingin Menghapus Y/N')" href="index.php?p=pengaduan_hapus&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Hapus</a></td>
+							<a class="btn-small modal-trigger more-btn" href="#tanggapan&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">More</a> 
+							<a class="btn-small delete-btn" onclick="event.preventDefault(); showConfirm('Anda yakin ingin menghapus pengaduan ini?', function(confirmed) { 
+            if(confirmed) window.location.href='index.php?p=pengaduan_hapus&id_pengaduan=<?php echo $r['id_pengaduan'] ?>';
+        })" href="#">Hapus</a>
+						</td>
 
 <!-- ditanggapi -->
         <div id="tanggapan&id_pengaduan=<?php echo $r['id_pengaduan'] ?>" class="modal">
@@ -99,24 +111,32 @@
 					$query = mysqli_query($koneksi,"INSERT INTO pengaduan VALUES (NULL,'$tgl','$nik','".$_POST['laporan']."','$nama','proses')");
 
 		 			if($query){
-			 			echo "<script>alert('Pengaduan Akan Segera di Proses')</script>";
-			 			echo "<script>location='index.php';</script>";
+			 			echo "<script>
+                        showAlert('Pengaduan berhasil dikirim dan akan segera diproses', 'success');
+                        setTimeout(function() {
+                            window.location.href = 'index.php';
+                        }, 2000);
+                    </script>";
 		 			}
 
 		 		}
 		 		else{
-		 			echo "<script>alert('Akuran Gambar Tidak Lebih Dari 100KB')</script>";
+		 			echo "<script>showAlert('Ukuran gambar tidak boleh lebih dari 10MB', 'error');</script>";
 		 		}
 		 	}
 		 	else{
-		 		echo "<script>alert('Format File Tidak Di Dukung')</script>";
+		 		echo "<script>showAlert('Format file tidak didukung', 'error');</script>";
 		 	}
 		}
 		else{
 			$query = mysqli_query($koneksi,"INSERT INTO pengaduan VALUES (NULL,'$tgl','$nik','".$_POST['laporan']."','noImage.png','proses')");
 			if($query){
-			 	echo "<script>alert('Pengaduan Akan Segera Ditanggapi')</script>";
-	 			echo "<script>location='index.php';</script>";
+			 	echo "<script>
+                showAlert('Pengaduan berhasil dikirim dan akan segera ditanggapi', 'success');
+                setTimeout(function() {
+                    window.location.href = 'index.php';
+                }, 2000);
+            </script>";
  			}
 		}
 

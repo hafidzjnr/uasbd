@@ -1,10 +1,11 @@
-        <div class="row">
+<div class="row">
           <div class="col s12 m9">
-            <h3 class="white-text"><b>Respon</b></h3>
+            <link rel="stylesheet" type="text/css" href="../csstyle/respon.css">
+            <h3 class="text"><b>Respon</b></h3>
           </div>
         </div>
 
-        <table border="3" class="responsive-table white">
+        <table id="example" class="responsive-table white" style="width:100%">
           <thead>
               <tr>
 				<th>No</th>
@@ -32,8 +33,10 @@
 			<td><?php echo $r['tgl_tanggapan']; ?></td>
 			<td><?php echo $r['status']; ?></td>
 			<td>
-					<a class="btn black pink-text modal-trigger" href="#more?id_tanggapan=<?php echo $r['id_tanggapan'] ?>">More</a> 
-					<a class="btn pink black-text" onclick="return confirm('Anda Yakin Ingin Menghapus Y/N')" href="index.php?p=tanggapan_hapus&id_tanggapan=<?php echo $r['id_tanggapan'] ?>">Hapus</a>
+					<a class="btn-small modal-trigger more-btn" href="#more?id_tanggapan=<?php echo $r['id_tanggapan'] ?>">More</a> 
+					<a class="btn-small delete-btn" onclick="event.preventDefault(); showConfirm('Anda yakin ingin menghapus tanggapan ini?', function(confirmed) { 
+            if(confirmed) window.location.href='index.php?p=tanggapan_hapus&id_tanggapan=<?php echo $r['id_tanggapan'] ?>';
+        })" href="#">Hapus</a>
 			</td>
 		
 
@@ -73,4 +76,4 @@
              ?>
 
           </tbody>
-        </table>        
+        </table>

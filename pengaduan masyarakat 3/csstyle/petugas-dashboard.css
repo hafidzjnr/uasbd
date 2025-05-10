@@ -1,0 +1,85 @@
+/* Petugas Dashboard Styling */
+
+/* Dashboard title */
+h3.white-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 20px 0;
+    padding: 15px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Card styling */
+.row .col.s4 {
+    padding: 15px;
+}
+
+.card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Black card specific styling */
+.card.black {
+    background: #000 !important;
+}
+
+.card.black .card-content {
+    padding: 20px;
+}
+
+.card.black .pink-text {
+    color: #FF69B4 !important;
+}
+
+/* Pink card specific styling */
+.card.pink {
+    background: #FF69B4 !important;
+}
+
+.card.pink .card-content {
+    padding: 20px;
+}
+
+.card.pink .black-text {
+    color: #000 !important;
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.4rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 15px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.card-title b.right {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .row .col.s4 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .row .col.s4 {
+        width: 100%;
+    }
+    
+    h3.white-text {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+}

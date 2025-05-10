@@ -14,8 +14,10 @@
     	<title>Aplikasi Pengaduan masyarakat</title>
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="../css/alerts.css">
 
       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -44,39 +46,57 @@
       </script>
 
     </head>
+    <body>
+      <div id="particles-bg"></div>
+      <style>
+        #particles-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+        }
+        .row {
+          position: relative;
+          z-index: 1;
+        }
+      </style>
 
-    <body style="background:url(../img/pik.jpg); background-size: cover;">
+      <div class="row">
+        <div class="col s12 m3">
+            <ul id="slide-out" class="sidenav sidenav-fixed ">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+													<style>
+														.user-view .background {
+															background: #ff69b4;
+														}
+													</style>
+                        </div>
+                        <span class="white-text name"><?php echo ucwords($_SESSION['data']['nama_petugas']); ?></span> 
+                        <span class="white-text"></span>
+						  
+                    </div>
+                </li>
+                <li><a href="index.php?p=dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
+                <li><a href="index.php?p=registrasi"><i class="material-icons">featured_play_list</i>Registrasi</a></li>
+                <li><a href="index.php?p=pengaduan"><i class="material-icons">report</i>Pengaduan</a></li>
+                <li><a href="index.php?p=respon"><i class="material-icons">question_answer</i>Respon</a></li>
+                <li><a href="index.php?p=user"><i class="material-icons">account_box</i>User</a></li>
+                <li><a href="index.php?p=laporan"><i class="material-icons">book</i>Laporan</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="waves-effect" href="../index.php?p=logout"><i class="material-icons">logout</i>Logout</a></li>
+            </ul>
 
-    <div class="row">
-      <div class="col s12 m3">
-          <ul id="slide-out" class="sidenav sidenav-fixed ">
-              <li>
-                  <div class="user-view">
-                      <div class="background">
-                          <img src="../img/bp.jpg">
-                      </div>
-                      <span class="white-text name"><?php echo ucwords($_SESSION['data']['nama_petugas']); ?></span> 
-                      <span class="white-text">Website by M Rayhan Arhbytio</span>
-					  
-                  </div>
-              </li>
-              <li><a href="index.php?p=dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
-              <li><a href="index.php?p=registrasi"><i class="material-icons">featured_play_list</i>Registrasi</a></li>
-              <li><a href="index.php?p=pengaduan"><i class="material-icons">report</i>Pengaduan</a></li>
-              <li><a href="index.php?p=respon"><i class="material-icons">question_answer</i>Respon</a></li>
-              <li><a href="index.php?p=user"><i class="material-icons">account_box</i>User</a></li>
-              <li><a href="index.php?p=laporan"><i class="material-icons">book</i>Laporan</a></li>
-              <li>
-                  <div class="divider"></div>
-              </li>
-              <li><a class="waves-effect" href="../index.php?p=logout"><i class="material-icons">logout</i>Logout</a></li>
-          </ul>
+            <a href="#" data-target="slide-out" class="btn sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
 
-          <a href="#" data-target="slide-out" class="btn sidenav-trigger"><i class="material-icons">menu</i></a>
-      </div>
-
-      <div class="col s12 m9">
-        
+        <div class="col s12 m9">
+          
 	<?php 
 		if(@$_GET['p']==""){
 			include_once 'dashboard.php';
@@ -146,17 +166,17 @@
 		}
 	 ?>
 
+        </div>
+
+
       </div>
-
-
-    </div>
-
 
 
 
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="../js/materialize.min.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script type="text/javascript" src="../js/alerts.js"></script>
 
       <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -171,5 +191,62 @@
 
       </script>
 
+      <!-- Add particles.js -->
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script>
+        particlesJS('particles-bg', {
+            particles: {
+                number: {
+                    value: 40,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#FF69B4'
+                },
+                opacity: {
+                    value: 0.2,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#FF69B4',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+      </script>
     </body>
   </html>

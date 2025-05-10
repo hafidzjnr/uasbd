@@ -1,11 +1,13 @@
-        <div class="row">
+<link rel="stylesheet" type="text/css" href="../csstyle/respon.css">
+
+<div class="row">
           <div class="col s12 m9">
-            <h3 class="white-text"><b>Laporan</b></h3>
+            <h3 class="text"><b>Laporan</b></h3>
           </div> 
           <div class="col s12 m3">
             <div class="section"></div>
-            <a style="margin-right: 5px;" title="PDF" class="waves-effect waves-light btn black" href="cetak.php"><i class="material-icons">print</i></a>
-          	<a title="Excel" class="waves-effect waves-light btn black" href="export.php"><i class="material-icons">save</i></a>
+            <a style="margin-right: 5px;" title="PDF" class="waves-effect waves-light btn black" onclick="printPDF()" href="#"><i class="material-icons">print</i></a>
+            <a title="Excel" class="waves-effect waves-light btn black" onclick="exportExcel()" href="#"><i class="material-icons">save</i></a>
           </div>
         </div>
 
@@ -36,7 +38,7 @@
 			<td><?php echo $r['tgl_pengaduan']; ?></td>
 			<td><?php echo $r['tgl_tanggapan']; ?></td>
 			<td><?php echo $r['status']; ?></td>
-			<td><a class="btn black pink-text modal-trigger" href="#laporan?id_tanggapan=<?php echo $r['id_tanggapan'] ?>">More</a></td>
+			<td><a class="btn-small modal-trigger more-btn" href="#laporan?id_tanggapan=<?php echo $r['id_tanggapan'] ?>">More</a></td>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
         <!-- Modal Structure -->
@@ -73,4 +75,22 @@
              ?>
 
           </tbody>
-        </table>        
+        </table>
+
+        <script>
+function printPDF() {
+    showConfirm('Anda yakin ingin mencetak laporan dalam format PDF?', function(confirmed) {
+        if(confirmed) {
+            window.location.href = 'cetak.php';
+        }
+    });
+}
+
+function exportExcel() {
+    showConfirm('Anda yakin ingin mengekspor laporan ke Excel?', function(confirmed) {
+        if(confirmed) {
+            window.location.href = 'export.php';
+        }
+    });
+}
+</script>

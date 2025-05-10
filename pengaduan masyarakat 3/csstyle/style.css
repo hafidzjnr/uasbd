@@ -1,0 +1,96 @@
+body {
+    background: #ffff;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #333;
+}
+
+#particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.form-content {
+    position: relative;
+    z-index: 1;
+}
+
+.input_field input {
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input_field label {
+    color: rgba(0,0,0,0.4);
+}
+
+::placeholder {
+    color: rgba(0,0,0,0.4);
+}
+
+h3 {
+    color: #FF4B8B !important;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h5 {
+    color: #333 !important;
+    font-weight: 100 !important;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #FF4B8B, #FF6F91);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 75, 139, 0.4);
+    background: linear-gradient(45deg, #FF6F91, #FF4B8B);
+}
+
+.error-message {
+    color: #FF4B8B;
+    text-align: center;
+    margin-top: 15px;
+    background: rgba(255,75,139,0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.signup-link {
+    color: #FF4B8B;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}

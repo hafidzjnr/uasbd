@@ -1,0 +1,150 @@
+body {
+    background: #fff;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+/* User page styles */
+.page-header {
+    margin-bottom: 20px;
+}
+
+.page-header h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.add-button-container {
+    margin-top: 20px;
+}
+
+/* Table styles */
+.responsive-table {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table thead tr {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.responsive-table th {
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.responsive-table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.responsive-table tbody tr:hover {
+    background-color: rgba(255, 105, 180, 0.05);
+}
+
+/* Button styles */
+.btn.black.pink-text {
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn.pink.black-text {
+    transition: all 0.3s ease;
+}
+
+.btn.black.pink-text:hover {
+    background-color: #ff69b4;
+    color: black !important;
+}
+
+.btn.pink.black-text:hover {
+    background-color: black;
+    color: #ff69b4 !important;
+}
+
+/* Modal styles */
+.modal {
+    border-radius: 8px;
+}
+
+.modal .modal-content {
+    padding: 24px;
+}
+
+.modal h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.modal .input-field {
+    margin-bottom: 20px;
+}
+
+.modal .input-field input {
+    border-bottom: 2px solid #ff69b4;
+}
+
+.modal .input-field input:focus {
+    border-bottom: 2px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.modal .input-field label {
+    color: #666;
+}
+
+.modal .input-field label.active {
+    color: #ff69b4;
+}
+
+/* Radio button styles */
+[type="radio"].with-gap:checked+span:after {
+    background-color: #ff69b4;
+    border: 2px solid #ff69b4;
+}
+
+[type="radio"].with-gap:checked+span:before {
+    border: 2px solid #ff69b4;
+}
+
+/* Select dropdown styles */
+.select-wrapper input.select-dropdown {
+    border-bottom: 2px solid #ff69b4;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 2px solid #000;
+}
+
+.dropdown-content li>a, 
+.dropdown-content li>span {
+    color: #ff69b4;
+}
+
+/* Submit button styles */
+.modal .btn[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    .responsive-table {
+        font-size: 14px;
+    }
+    
+    .btn {
+        padding: 0 10px;
+    }
+    
+    .modal {
+        width: 95%;
+    }
+}

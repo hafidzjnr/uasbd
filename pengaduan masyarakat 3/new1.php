@@ -1,61 +1,122 @@
+<?php
+include 'conn/koneksi.php';
+if(isset($_POST['simpan'])){
+    $password = md5($_POST['password']);
+    $query=mysqli_query($koneksi,"INSERT INTO masyarakat VALUES ('".$_POST['nik']."','".$_POST['nama']."','".$_POST['username']."','".$password."','".$_POST['telp']."')");
+    if($query){
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                showAlert('Data berhasil disimpan', 'success');
+                setTimeout(function() {
+                    window.location.href = 'index.php';
+                }, 2000);
+            });
+        </script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Buat Akun</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-	<link href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+    <title>Buat Akun - Pengaduan Masyarakat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="csstyle/new1.css?v=<?php echo time(); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/alerts.css">
+    <script src="js/alerts.js"></script>
 </head>
-<body style="background: url(img/pik.jpg); background-size: cover;">
-	
-<div class="card"style="padding: 50px; width: 40%; margin: 0 auto; margin-top: 5%; border-radius: 30px; box-shadow: 0px 10px 20px 5px #263238;">
-<h3 style="text-align: center;" class="black-text"><b>Registrasi</b></h3>
-<h5 style="text-align: center;" class="black-text"><b>Masyarakat</b></h5>
+<body>
+    <div class="registration-card">
+        <div id="particles-bg"></div>
+        <div class="form-content">
+            <h3><b>Registrasi</b></h3>
+            <h5><b>Pengaduan Masyarakat</b></h5>
 
-	<form method="POST">
-		<div >
-				<div><label style="color: black;" for="nik">NIK</label>
-					<input id="nik" type="number" name="nik" placeholder="Masukan NIK" autocomplete="off"><br><br>
-				</div>
-				<div >
-					<label style="color: black;" for="nama">Nama</label>
-					<input id="nama" type="text" name="nama" placeholder="Masukan Nama" autocomplete="off"><br><br>
-				</div>
-				<div >
-					<label style="color: black;" for="username">Username</label>		
-					<input id="username" type="text" name="username" placeholder="Masukan Username" autocomplete="off"><br><br>
-				</div>
-				<div >
-					<label style="color: black;" for="password">Password</label>
-					<input id="password" type="password" name="password" placeholder="Masukan Password" autocomplete="off"><br><br>
-				</div>
-				<div >
-					<label style="color: black;" for="telp">Telp</label>
-					<input id="telp" type="number" name="telp" placeholder="Masukan Nomor Telepon" autocomplete="off"><br><br>
-				</div>
-			
-		<input type="submit" name="simpan" value="Simpan" class="btn pink " style="width: 100%; border-radius: 30px;"><br><br>
-		<a href="index.php">Kembali Ke login</a>
-	</div>
-	</form>
+            <form method="POST" class="registration-form">
+                <div class="input_field">
+                    <label for="nik">NIK</label>
+                    <input id="nik" type="number" name="nik" placeholder="Masukan NIK" autocomplete="off" required>
+                </div>
+                <div class="input_field">
+                    <label for="nama">Nama</label>
+                    <input id="nama" type="text" name="nama" placeholder="Masukan Nama" autocomplete="off" required>
+                </div>
+                <div class="input_field">
+                    <label for="username">Username</label>        
+                    <input id="username" type="text" name="username" placeholder="Masukan Username" autocomplete="off" required>
+                </div>
+                <div class="input_field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" placeholder="Masukan Password" autocomplete="off" required>
+                </div>
+                <div class="input_field">
+                    <label for="telp">Telp</label>
+                    <input id="telp" type="number" name="telp" placeholder="Masukan Nomor Telepon" autocomplete="off" required>
+                </div>
+            
+                <input type="submit" name="simpan" value="Daftar" class="submit-btn">
+                <a href="index.php" class="back-link">Kembali Ke Login</a>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-bg', {
+            particles: {
+                number: {
+                    value: 40,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#FF4B8B'
+                },
+                opacity: {
+                    value: 0.2,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#FF4B8B',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
-
-
-<?php 
-			include 'conn/koneksi.php';
-				if(isset($_POST['simpan'])){
-					$password = md5($_POST['password']);
-
-					$query=mysqli_query($koneksi,"INSERT INTO masyarakat VALUES ('".$_POST['nik']."','".$_POST['nama']."','".$_POST['username']."','".$password."','".$_POST['telp']."')");
-					if($query){
-						echo "<script>alert('Data Tesimpan');
-						document.location.href ='index.php';
-						</script>";
-					}
-				}
-			 ?>

@@ -1,6 +1,11 @@
-        <div class="row">
+<?php
+    // Add the CSS link
+    echo '<link rel="stylesheet" type="text/css" href="../csstyle/respon.css">';
+    ?>
+
+<div class="row">
           <div class="col s12 m9">
-            <h3 class="white-text"><b>Pengaduan</b></h3>
+            <h3 class="text"><b>Pengaduan</b></h3>
           </div>
         </div>
 
@@ -29,7 +34,9 @@
 			<td><?php echo $r['status']; ?></td>
 			<td>
 					<a class="btn modal-trigger black pink-text" href="#more?id_pengaduan=<?php echo $r['id_pengaduan'] ?>">More</a>  
-					<a class="btn pink black-text" onclick="return confirm('Anda Yakin Ingin Menghapus Y/N')" href="index.php?p=pengaduan_hapus&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Hapus</a>
+					<a class="btn pink black-text" onclick="event.preventDefault(); showConfirm('Anda yakin ingin menghapus pengaduan ini?', function(confirmed) { 
+            if(confirmed) window.location.href='index.php?p=pengaduan_hapus&id_pengaduan=<?php echo $r['id_pengaduan'] ?>';
+        })" href="#">Hapus</a>
 			</td>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -73,10 +80,14 @@
 					$tgl = date('Y-m-d');
 					$query = mysqli_query($koneksi,"INSERT INTO tanggapan VALUES (NULL,'".$r['id_pengaduan']."','".$tgl."','".$_POST['tanggapan']."','".$_SESSION['data']['id_petugas']."')");
 					if($query){
-						$update=mysqli_query($koneksi,"UPDATE pengaduan SET status='selesai' WHERE id_pengaduan='".$r['id_pengaduan']."'");
+						$update = mysqli_query($koneksi,"UPDATE pengaduan SET status='selesai' WHERE id_pengaduan='".$r['id_pengaduan']."'");
 						if($update){
-							echo "<script>alert('Tanggapan Terkirim')</script>";
-							echo "<script>location='index.php?p=pengaduan';</script>";
+							echo "<script>
+                showAlert('Tanggapan berhasil dikirim', 'success');
+                setTimeout(function() {
+                    window.location.href = 'index.php?p=pengaduan';
+                }, 2000);
+            </script>";
 						}
 					}
 				}
@@ -93,4 +104,4 @@
              ?>
 
           </tbody>
-        </table>        
+        </table>

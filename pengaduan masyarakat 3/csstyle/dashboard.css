@@ -1,0 +1,166 @@
+body {
+    background: #fff;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.sidenav {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidenav .user-view {
+    padding: 20px 15px;
+    margin-bottom: 0;
+}
+
+
+.header-text {
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.row {
+    margin: 0 -15px;
+    margin-bottom: 0;
+}
+
+.col.s4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 0 15px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-small{
+  background: #333;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: transform 0.3s ease;
+}
+
+.card-small:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.card-content canvas {
+    max-height: 400px;
+    margin: 20px auto;
+}
+
+.card .card-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #040404;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.col.s8 .card {
+    background: rgba(255, 255, 255, 0.95);
+    min-height: 450px;
+}
+
+.text{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right {
+    float: right;
+}
+
+.sidenav li > a {
+    color: #333;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidenav li > a:hover {
+    background-color: rgba(233, 30, 99, 0.1);
+    color: #e91e63;
+}
+
+.sidenav li > a i {
+    color: #e91e63;
+}
+
+.progress-container {
+    margin-top: 15px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #FF69B4;
+    transition: width 0.3s ease;
+}
+
+.card.black .progress-bar {
+    background: #FF69B4;
+}
+
+.card.pink .progress-bar {
+    background: #000;
+}
+
+.progress-text {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card.black .progress-text {
+    color: #FF69B4;
+}
+
+.card.pink .progress-text {
+    color: #000;
+}

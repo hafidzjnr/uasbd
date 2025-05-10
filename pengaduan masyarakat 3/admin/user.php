@@ -1,8 +1,10 @@
-        <div class="row">
+<link rel="stylesheet" type="text/css" href="../csstyle/respon.css">
+
+<div class="row page-header">
           <div class="col s12 m9">
-            <h3 class="white-text"><b>User</b></h3>
+            <h3 class="text"><b>User</b></h3>
           </div>  
-          <div class="col s12 m3">
+          <div class="col s12 m3 add-button-container">
             <div class="section"></div>
             <a class="waves-effect waves-light btn modal-trigger black" href="#modal1"><i class="material-icons">add</i></a>
           </div>
@@ -32,8 +34,10 @@
 			<td><?php echo $r['telp']; ?></td>
 			<td><?php echo $r['level']; ?></td>
 			<td>
-					<a class="btn black pink-text modal-trigger" href="#user_edit<?php echo $r['id_petugas'] ?>">Edit</a> 
-					<a class="btn pink black-text" onclick="return confirm('Anda Yakin Ingin Menghapus Y/N')" href="index.php?p=user_hapus&id_petugas=<?php echo $r['id_petugas'] ?>">Hapus</a>
+					<a class="btn-small modal-trigger more-btn" href="#user_edit<?php echo $r['id_petugas'] ?>">Edit</a> 
+					<a class="btn-small delete-btn " onclick="event.preventDefault(); showConfirm('Anda yakin ingin menghapus?', function(confirmed) { 
+            if(confirmed) window.location.href='index.php?p=user_hapus&id_petugas=<?php echo $r['id_petugas'] ?>';
+        })" href="#">Hapus</a>
 			</td>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -126,7 +130,7 @@
 					</select>
 				</div>
 				<div class="col s12 input-field">
-					<input type="submit" name="input" value="Simpan" class="btn black pink-text">
+					<input type="submit" name="input" value="Simpan" class="btn-small ">
 				</div>
 			</form>
 
@@ -146,3 +150,21 @@
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
           </div>
         </div>
+
+<?php if(isset($_POST['input'])): ?>
+    <script>
+        showAlert('Data berhasil ditambahkan', 'success');
+        setTimeout(() => {
+            window.location.href = 'index.php?p=user';
+        }, 2000);
+    </script>
+<?php endif; ?>
+
+<?php if(isset($_POST['Update'])): ?>
+    <script>
+        showAlert('Data berhasil diupdate', 'success');
+        setTimeout(() => {
+            window.location.href = 'index.php?p=user';
+        }, 2000);
+    </script>
+<?php endif; ?>
